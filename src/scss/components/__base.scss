@@ -1,0 +1,175 @@
+*, *::before, *::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  margin: 0 auto;
+  color: $color-main;
+  font-family: $font-main;
+  @include font($f-size-main, $f-weight-main, $f-lheight-main);
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  max-width: 1710px;
+  margin: 0 auto;
+  padding: 0 30px;
+
+  .section-reviews & {
+    position: relative;
+  }
+}
+
+.container-2 {
+  width: 100%;
+  height: 100%;
+  max-width: 1428px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+body {  
+  margin: 0;
+  overflow: hidden;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -2;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+
+  &.anim {
+    bottom: 0;
+    height: 100%;
+    top: unset;
+    width: fit-content;
+    transform: rotate(45deg);
+    transform-origin: 66% 60%;
+  }
+
+  .img {
+    background-repeat: no-repeat;
+  }
+
+  .img.img-right {
+    object-position: right;
+  }
+
+  .img.img-left {
+    object-position: left;
+  }
+
+  .img.contain {
+    object-fit: contain;
+  }
+}
+
+.background-image-gradient {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -3;
+  margin: 0;
+
+  &.mustangchain {
+    background-image: linear-gradient(295deg, #69c7ed -25%, #608dca 76%, #554ba1 146%);
+    opacity: 0;
+    transition-duration: $transition-main;
+  }
+
+  &.dbafitness {
+    background-image: linear-gradient(117deg, #e74e2c -9%, #f57f4f 56%, #fe9c64 118%);
+    opacity: 1;
+    transition-duration: $transition-main;
+  }
+}
+
+.icon {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+}
+
+.b-bold {
+  font-family: $b-bold!important;
+  font-weight: normal!important;
+}
+
+.b-medium {
+  font-family: $b-medium!important;
+  font-weight: normal!important;
+}
+
+.b-regular {
+  font-family: $b-regular!important;
+  font-weight: normal!important;
+}
+
+.b-light {
+  font-family: $b-light!important;
+  font-weight: normal!important;
+}
+
+.b-thin {
+  font-family: $b-thin!important;
+  font-weight: normal!important;
+}
+
+.img-content {
+  @include flex(center, center);
+}
+
+.pos-relative {
+ position: relative;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 0.67em 0;
+}
+
+* + h1, * + h2, * + h3,* + h4,* + h5,* + h6 {
+  margin: 0.67em 0 0 0;
+}
+
+p, ul, ol, figure {
+  margin: 0 0 15px 0;
+}
+
+div > p {
+  margin-bottom: 0;
+}
+
+* + p, * + ul, * + ol, * + figure{
+  margin-top: 15px;
+}
+
+ul {
+  padding: 0 0 0 40px;
+  margin: 0;
+}
+
+ul > li > ol,
+ul > li > ul,
+ol > li > ul,
+ol > li > ol {
+  margin: 0;
+}
+

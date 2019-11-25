@@ -1,0 +1,115 @@
+.grid {
+  @include flex(center, stretch);
+  flex-wrap: wrap;
+  height: 100%;
+  width: inherit;
+
+  .section-whatwecando & {
+    min-height: 100%;
+    height: auto;
+  }
+
+  .section-blogs .section-body > & {
+    @include spacing(100px);
+  }
+
+  .section-blogs .card-footer & {
+    @include flex(space-between, stretch);
+  }
+
+  .section-engineering & {
+    @include spacing(10px);
+    margin-bottom: 70px;
+  }
+
+  .col {
+    background-color: transparent;
+    @include flex(center, center);
+    flex-direction: column;
+    
+    .section-whatwecando & {
+      min-height: 440px;
+
+      &:hover {
+        background-color: $color-pink-hover;
+      }
+    }
+
+    .section-whatwecando__services & {
+      width: 50%;
+
+      &:hover {
+        background-color: $color-card-hover;
+      }
+    }
+
+    .section-engineering & {
+      background-color: transparent;
+      margin-bottom: 20px;
+
+      &:hover .card-header {
+        min-height: 90%;
+        width: 90%;
+        border-radius: 0;
+      }
+
+      &:hover .card-engineering {
+        height: 200%;
+      }
+    }
+  }
+
+  &.background-layout {
+    @include flex(flex-end, flex-end);
+    flex-direction: row;
+    width: max-content;
+    @include spacing(10px);
+    margin-left: auto;
+    flex-wrap: nowrap;
+
+    .col-bg {
+      @include flex(flex-end, flex-end);
+      flex-direction: column;
+      height: 100%;
+      width: fit-content;
+      position: relative;
+      overflow: visible;
+      @include spacing-vert(10px);
+      transition-duration: $transition-main;
+      will-change: top;
+
+      &.col-bg-0 {
+        justify-content: flex-start;
+        top: calc(100vh * (-0.6*2) - (100vh*0.05));
+      }
+      &.col-bg-1 {
+        justify-content: flex-start;
+        top: calc(100vh * (-.6*2) + (100vh*0.15));
+      }
+
+      &.col-bg-2 {
+        top: 0;
+      }
+
+      &.col-bg-3 {
+        top: calc(100vh*0.45);
+      }
+
+      &.col-bg-4 {
+        top: calc(100vh*0.05);
+      }
+    }
+
+    .bg-pic {
+      margin: 0;
+      min-height: $anim-mob-height;
+      height: $anim-mob-height;
+      width: fit-content;
+
+      .img-bg {
+        height: 100%;
+        width: auto;
+      }
+    }
+  }
+}

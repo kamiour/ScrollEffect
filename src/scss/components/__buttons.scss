@@ -1,0 +1,101 @@
+.button {
+  @include flex(center, center);
+  @include button($color-main, $color-pink2, 0, 0, none, 30px, uppercase);
+  @include font(14px, 600, normal);
+  transition-duration: 0.3s;
+  width: 280px;
+  height: 60px;
+  cursor: pointer;
+
+  &-hero {
+    position: absolute;
+    top: calc(100% + 14vh);
+  }
+
+  &.button-mustangchain {
+    background-color: $color-main;
+    color: $color-blue;
+
+    &:hover {
+      color: $color-main;
+      background-color: $color-blue;
+    }
+  }
+
+  &.button-dbafitness {
+    background-color: $color-main;
+    color: $color-orange;
+
+    &:hover {
+      color: $color-main;
+      background-color: $color-orange;
+    }
+  }
+
+  .section-case-study .section-body & {
+    @include button($color-main, rgba($color-main, 0.2), 0, 0, none, 18px, none);
+    width: 130px;
+    height: 36px;
+    @include font(14px, bold, normal);
+    letter-spacing: 0.64px;
+  }
+
+  .section-main &-group {
+    @include flex(flex-start, center);
+    @include spacing(10px);
+    margin-bottom: 28px;
+  }
+
+  &:hover {
+    @include button($color-pink2, $color-main, 0, 0, none, 30px, uppercase);
+  }
+
+  &-wrap & {
+    margin: 0 auto;
+  }
+
+  &-navigation, &-navigation:hover {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%) translateX(-50%) rotate(-90deg);
+    transform-origin: top center;
+    color: $color-pink2;
+    display: flex;
+    align-items: center;
+    @include font(14px, bold, normal);
+    text-transform: uppercase;
+    text-decoration: none;
+
+    &:before {
+      display: inline-block;
+      content: "";
+      width: 40px;
+      height: 1px;
+      background-color: $color-pink2;
+      margin-right: 15px;
+    }
+
+    .footer & {
+      
+      &:before {
+        display: none;
+      }
+
+      &:after {
+        display: inline-block;
+        content: "";
+        width: 40px;
+        height: 1px;
+        background-color: $color-pink2;
+        margin-right: 15px;
+      }
+    }
+  }
+
+  .section-contact .form & {
+    width: 206px;
+    height: 50px;
+  }
+}
+

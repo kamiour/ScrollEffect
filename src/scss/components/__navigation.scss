@@ -1,0 +1,39 @@
+.header-navigation {
+  @include flex(space-between, center);
+  @include font(12px, 600, normal);
+  @include spacing(4px);
+  flex-wrap: wrap;
+}
+
+.nav-wrap {
+  @include flex(center, center);
+}
+  
+.nav-item {
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--header-font-color, $color-main);
+
+  &:hover {
+    color: $color-pink2;
+    text-decoration: none;
+  }
+
+  &.isactive, &.isactive:hover {
+    color: $color-pink2;
+  }
+
+  /*.header__services & {
+    color: $color-text-reverse;
+
+    &:hover {
+      color: $color-pink2;
+      text-decoration: none;
+    }
+  }*/
+}
+
+ul li{
+  padding: 0;
+}
