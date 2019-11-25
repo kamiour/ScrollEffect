@@ -16,14 +16,14 @@ let gulp = require('gulp'),
 
     let path = {
         build: { //Тут мы укажем куда складывать готовые после сборки файлы
-          html: '/docs/',
-          js: '/docs/js/',
-          css: '/docs/css/',
-          img: '/docs/images/',
-          fonts: '/docs/fonts/',
-          ico: '/docs/',
-          robots: '/docs/',
-          language: '/docs/language/'
+          html: 'docs/',
+          js: 'docs/js/',
+          css: 'docs/css/',
+          img: 'docs/images/',
+          fonts: 'docs/fonts/',
+          ico: 'docs/',
+          robots: 'docs/',
+          language: 'docs/language/'
         },
         src: { //Пути откуда брать исходники
           html: 'src/*.html', //Синтаксис src/*.html говорит gulp что мы хотим взять все файлы с расширением .html
@@ -43,12 +43,12 @@ let gulp = require('gulp'),
           fonts: 'src/fonts/**/*.*',
           language: 'src/language/*.*'
         },
-        clean: './/docs/'
+        clean: 'docs/'
   };
 
   let config = {
       server: {
-          baseDir: "/docs/"
+          baseDir: "docs/"
       },
       tunnel: false,
       host: 'localhost',
