@@ -86,13 +86,13 @@ body {
   margin: 0;
 
   &.mustangchain {
-    background-image: linear-gradient(295deg, #69c7ed -25%, #608dca 76%, #554ba1 146%);
+    background-image: linear-gradient(295deg, #bfeccb -25%, #4ab659 76%, #175c31 146%);
     opacity: 0;
     transition-duration: $transition-main;
   }
 
   &.dbafitness {
-    background-image: linear-gradient(117deg, #e74e2c -9%, #f57f4f 56%, #fe9c64 118%);
+    background-image: linear-gradient(117deg, #e79eb4 -9%, #dd7d92 56%, #ce5f69 118%);
     opacity: 1;
     transition-duration: $transition-main;
   }

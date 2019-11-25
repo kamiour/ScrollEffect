@@ -1,4 +1,4 @@
-let container = document.querySelector('#dbafitness');
+let container = document.querySelector('#section-scroll');
 let body = document.querySelector('body');
 let slidePhones = $('.col-slide'); //animated phones columns
 let dbaContent = document.querySelector('.section-main.dbafitness');

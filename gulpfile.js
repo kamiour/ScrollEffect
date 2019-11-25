@@ -92,22 +92,6 @@ gulp.task('fonts:build', async function() {
         .pipe(gulp.dest(path.build.fonts))
 });
 
-gulp.task('ico:build', async function() {
-  gulp.src(path.src.ico)
-      .pipe(gulp.dest(path.build.ico))
-});
-
-gulp.task('robots:build', async function() {
-  gulp.src(path.src.robots)
-      .pipe(gulp.dest(path.build.robots))
-});
-
-gulp.task('lang:build', async function() {
-  gulp.src(path.src.language)
-      .pipe(gulp.dest(path.build.language))
-});
-
-
 //compressing all images
 
 let cache = require('gulp-cache');
@@ -156,9 +140,6 @@ gulp.task('build', gulp.series(
   'js:build',
   'style:build',
   'fonts:build',
-  'ico:build',
-  'robots:build',
-  'lang:build',
   'image:build'
 ));
 
@@ -168,7 +149,6 @@ gulp.task('watch', function(done){
   gulp.watch([path.watch.js], gulp.series('js:build')),
   gulp.watch([path.watch.img], gulp.series('image:build')),
   gulp.watch([path.watch.fonts], gulp.series('fonts:build')),
-  gulp.watch([path.watch.language], gulp.series('lang:build'))
   done();
 });
 
