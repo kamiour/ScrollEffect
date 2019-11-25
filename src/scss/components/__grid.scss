@@ -3,60 +3,11 @@
   flex-wrap: wrap;
   height: 100%;
   width: inherit;
-
-  .section-whatwecando & {
-    min-height: 100%;
-    height: auto;
-  }
-
-  .section-blogs .section-body > & {
-    @include spacing(100px);
-  }
-
-  .section-blogs .card-footer & {
-    @include flex(space-between, stretch);
-  }
-
-  .section-engineering & {
-    @include spacing(10px);
-    margin-bottom: 70px;
-  }
-
+  
   .col {
     background-color: transparent;
     @include flex(center, center);
     flex-direction: column;
-    
-    .section-whatwecando & {
-      min-height: 440px;
-
-      &:hover {
-        background-color: $color-pink-hover;
-      }
-    }
-
-    .section-whatwecando__services & {
-      width: 50%;
-
-      &:hover {
-        background-color: $color-card-hover;
-      }
-    }
-
-    .section-engineering & {
-      background-color: transparent;
-      margin-bottom: 20px;
-
-      &:hover .card-header {
-        min-height: 90%;
-        width: 90%;
-        border-radius: 0;
-      }
-
-      &:hover .card-engineering {
-        height: 200%;
-      }
-    }
   }
 
   &.background-layout {
@@ -105,6 +56,7 @@
       min-height: $anim-mob-height;
       height: $anim-mob-height;
       width: fit-content;
+      filter: drop-shadow(2px 4px 6px black);
 
       .img-bg {
         height: 100%;

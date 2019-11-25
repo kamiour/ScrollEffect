@@ -16,8 +16,8 @@
   color: var(--header-font-color, $color-main);
 
   &:hover {
-    color: $color-pink2;
-    text-decoration: none;
+    color: white;
+    text-decoration: underline;
   }
 
   &.isactive, &.isactive:hover {

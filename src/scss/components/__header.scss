@@ -5,7 +5,7 @@
   width: 100%;
   z-index: 2;
   margin: 0;
-  height: 80px;
+  height: 70px;
   overflow: hidden;
 
   .header-background {
@@ -13,22 +13,21 @@
     z-index: -1;
     height: 100vh;
     width: 100vw;
-    background-image: var(--bg-image, none);
-    background-color: var(--bg-color, transparent);
-    background-position-y: var(--bg-position, top);
+    background-image: linear-gradient(117deg,#e79eb4 -9%,#dd7d92 56%,#ce5f69 118%);
+    background-color: transparent;
+    background-position-y: top;
     transition-duration: $transition-main;
 
-    &.header-mustangchain {
-      display: none;
+    &.header-sectionRight {
       opacity: 0;
-      background-image: linear-gradient(295deg,#69c7ed -25%,#608dca 76%,#554ba1 146%);
+      background-image: linear-gradient(295deg,#bfeccb -25%,#4ab659 76%,#175c31 146%);;
     }
   }
 
   .header-layout {
     @include flex(space-between, center);
     padding: 0;
-    padding-top: 40px;
+    height: 100%;
 
     .header-left, .header-right {
       width: 35%;

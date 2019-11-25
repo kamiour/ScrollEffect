@@ -7,28 +7,23 @@
   height: 60px;
   cursor: pointer;
 
-  &-hero {
-    position: absolute;
-    top: calc(100% + 14vh);
-  }
-
-  &.button-mustangchain {
+  &.button-sectionRight {
     background-color: $color-main;
-    color: $color-blue;
+    color: #3A9A4D;
 
     &:hover {
       color: $color-main;
-      background-color: $color-blue;
+      background-color: #3A9A4D;
     }
   }
 
-  &.button-dbafitness {
+  &.button-sectionLeft {
     background-color: $color-main;
-    color: $color-orange;
+    color: #D77283;
 
     &:hover {
       color: $color-main;
-      background-color: $color-orange;
+      background-color: #D77283;
     }
   }
 
@@ -38,6 +33,10 @@
     height: 36px;
     @include font(14px, bold, normal);
     letter-spacing: 0.64px;
+
+    &:hover {
+      background-color: darken(rgba($color-main, 0.2), 50%);
+    }
   }
 
   .section-main &-group {
@@ -91,11 +90,6 @@
         margin-right: 15px;
       }
     }
-  }
-
-  .section-contact .form & {
-    width: 206px;
-    height: 50px;
   }
 }
 

@@ -16,10 +16,6 @@ html {
   max-width: 1710px;
   margin: 0 auto;
   padding: 0 30px;
-
-  .section-reviews & {
-    position: relative;
-  }
 }
 
 .container-2 {
@@ -85,13 +81,13 @@ body {
   z-index: -3;
   margin: 0;
 
-  &.mustangchain {
+  &.sectionRight {
     background-image: linear-gradient(295deg, #bfeccb -25%, #4ab659 76%, #175c31 146%);
     opacity: 0;
     transition-duration: $transition-main;
   }
 
-  &.dbafitness {
+  &.sectionLeft {
     background-image: linear-gradient(117deg, #e79eb4 -9%, #dd7d92 56%, #ce5f69 118%);
     opacity: 1;
     transition-duration: $transition-main;
