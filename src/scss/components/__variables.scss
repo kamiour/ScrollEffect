@@ -1,4 +1,4 @@
-$font-main: 'Nunito Sans', sans-serif;
+$font-main: 'Open Sans', sans-serif;
 $b-light: 'Brandon light';
 $b-thin: 'Brandon thin';
 $b-regular: 'Brandon regular';
@@ -21,6 +21,7 @@ $color-lightblue: #639cd3;
 $color-orange: #f68050;
 $color-orange-cecil: #e0810b;
 $color-text-reverse: #373739;
+$color-cecil: #ee8e02;
 
 $color-bg-dark: #1b1b1b;
 $color-bg-dark2: #1b1b1c;
@@ -31,9 +32,15 @@ $color-additional: #0f0f10;
 $color-bg-light: #fff;
 $color-bg-dark5: #0E0D0D;
 $color-card-hover: #1B1A1A;
+$color-light-gray: #bbcbd7;
 
 $element-border: 1px solid $color-main;
 
 $anim-mob-height: calc(100vh * (0.6));
 
 $transition-main: 0.4s;
+$transition-fast: 0.2s;
+$transition-slow: 0.8s;
+$transition-homepage: 1s;
+//$transition-slide: 5s;
+//$transition-slide: 0.9s;

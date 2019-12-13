@@ -8,6 +8,8 @@ html {
   color: $color-main;
   font-family: $font-main;
   @include font($f-size-main, $f-weight-main, $f-lheight-main);
+  transition-duration: $transition-homepage;
+  overflow-x: hidden;
 }
 
 .container {
@@ -16,6 +18,20 @@ html {
   max-width: 1710px;
   margin: 0 auto;
   padding: 0 30px;
+
+  @media screen and (max-width: 640px) {
+    padding: 0 24px;
+  }
+
+  .section-reviews & {
+    position: relative;
+  }
+
+  @media screen and (max-width: 640px) {
+    .section-whatwecando & {
+      padding: 0;
+    }
+  }
 }
 
 .container-2 {
@@ -24,11 +40,52 @@ html {
   max-width: 1428px;
   margin: 0 auto;
   padding: 0 30px;
+
+  @media screen and (max-width: 640px) {
+    & {
+      padding: 0 6px;
+    }
+  }
+
+  @media screen and (max-width: 475px) {
+    & {
+      padding: 0;
+    }
+  }
 }
 
-body {  
+body {
   margin: 0;
-  overflow: hidden;
+  overflow-x: hidden;
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+
+  &::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+  }
+
+  & > .main {
+    position: relative;
+    
+    .section-group-homepage {
+      background-image: none;
+      background-color: #161619;
+    }
+  }
+
+  & .article {
+    overflow: hidden;
+
+    &.stack-group {
+      background-image: linear-gradient(to bottom, #464648, 62%, #050506);
+    }
+  }
+
+  & .article-follow {
+    background-image: linear-gradient(109deg, #222225 3%, #131316 94%);
+    height: 15vh;
+    @include flex(center, center);
+  }
 }
 
 .img {
@@ -46,13 +103,52 @@ body {
   height: 100%;
   width: 100%;
 
-  &.anim {
-    bottom: 0;
-    height: 100%;
+  &.noise {
+    z-index: -1;
+  }
+
+  .header &.noise {
+    display: none;
+  }
+
+  .section-reviews &.bg-reviews {
+    height: 110%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .section-partnership & {
     top: unset;
-    width: fit-content;
-    transform: rotate(45deg);
-    transform-origin: 66% 60%;
+    bottom: 0;
+    height: 88%;
+  }
+
+  @media screen and (max-width: 640px) {
+    & {
+      display: none;
+
+      &.bg-visible {
+        display: block;
+      }
+
+      &.noise {
+        display: block;
+      }
+    }
+  }
+
+  &.anim {
+    height: max-content;
+    top: 100%;
+    width: 100%;
+    min-width: max-content;
+    transform: rotate(45deg) translateY(calc(-50% - 2.5*100vh*0.6));
+    transform-origin: 50% 0;
+    z-index: -1;
+  }
+
+  .hidden {
+    visibility: hidden;
   }
 
   .img {
@@ -67,7 +163,7 @@ body {
     object-position: left;
   }
 
-  .img.contain {
+  .img.img-contain {
     object-fit: contain;
   }
 }
@@ -81,16 +177,20 @@ body {
   z-index: -3;
   margin: 0;
 
-  &.sectionRight {
-    background-image: linear-gradient(295deg, #bfeccb -25%, #4ab659 76%, #175c31 146%);
-    opacity: 0;
-    transition-duration: $transition-main;
-  }
+  // &.mustangchain {
+  //   background-image: linear-gradient(295deg, #69c7ed -25%, #608dca 76%, #554ba1 146%);
+  //   //opacity: 0;
+  //   transition-duration: $transition-main;
+  // }
 
-  &.sectionLeft {
-    background-image: linear-gradient(117deg, #e79eb4 -9%, #dd7d92 56%, #ce5f69 118%);
-    opacity: 1;
-    transition-duration: $transition-main;
+  // &.dbafitness {
+  //   background-image: linear-gradient(117deg, #e74e2c -9%, #f57f4f 56%, #fe9c64 118%);
+  //   //opacity: 1;
+  //   transition-duration: $transition-main;
+  // }
+
+  &.section-reviews {
+    background-image: linear-gradient(-297deg, #69c7ed -25%, #608dca 75%, #554ba1 145%);
   }
 }
 
@@ -137,6 +237,10 @@ body {
   cursor: pointer;
 }
 
+q {
+  font-style: normal;
+}
+
 h1, h2, h3, h4, h5, h6 {
   margin: 0 0 0.67em 0;
 }
@@ -168,4 +272,3 @@ ol > li > ul,
 ol > li > ol {
   margin: 0;
 }
-

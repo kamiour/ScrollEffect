@@ -11,7 +11,7 @@ $column: 12;
 }
 
 @include grid(0, '');
-@include grid(480px, s);
+@include grid(475px, s);
 @include grid(640px, m);
 @include grid(960px, l);
 @include grid(1280px, xl)
