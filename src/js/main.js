@@ -222,54 +222,51 @@ window.addEventListener("load", function(){
   if (currentPos() > dbaSection()) {
     firstEnterMustang = false;
     firstEnterDBA = true;
+    newTopDBA = [0, 0, 0];
+    finalDestinationBottom = distance;
+    newTopCecil = [(-1)*distance, (-1)*distance, (-1)*distance];
+    finalDestinationTop = 0;
+    currentProgress = [...initTop];
+    finalTopArray = [...finalTop];
+    startTopArray = [...currentProgress];
     
     (async function() {
-      newTopDBA = [0, 0, 0];
-      finalDestinationBottom = distance;
-      newTopCecil = [(-1)*distance, (-1)*distance, (-1)*distance];
-      finalDestinationTop = 0;
-      currentProgress = [...initTop];
-      finalTopArray = [...finalTop];
-      startTopArray = [...currentProgress];
-
+      change(gradDBA, gradMustang, article, durationZero);
       await topMove(durationZero);
       await mobileMove(durationZero);
       await bottomMove(durationZero);
     })();
 
-    change(gradDBA, gradMustang, article, durationZero);
+    
   } else {
     firstEnterDBA = false;
     firstEnterMustang = true;
+    newTopDBA = [distance, distance, distance];
+    finalDestinationBottom = 0;
+    newTopCecil = [0, 0, 0];
+    finalDestinationTop = (-1)*distance;
+    currentProgress = [...finalTop];
+    finalTopArray = [...initTop];
+    startTopArray = [...currentProgress];
 
     (async function() {
-      newTopDBA = [distance, distance, distance];
-      finalDestinationBottom = 0;
-      newTopCecil = [0, 0, 0];
-      finalDestinationTop = (-1)*distance;
-      currentProgress = [...finalTop];
-      finalTopArray = [...initTop];
-      startTopArray = [...currentProgress];
-
+      change(gradMustang, gradDBA, article, durationZero);
       await bottomMove(durationZero);
       await mobileMove(durationZero);
       await topMove(durationZero);
     })();
-
-    change(gradMustang, gradDBA, article, durationZero);
   }
   
   document.addEventListener("scroll", function(event) {
 
     if (currentPos() == dbaSection() && firstEnterDBA == true) {
-
-      let pr = new Promise((res, rej) => {
+      let promiseDBA = new Promise((res, rej) => {
         stopMove = true;
         setTimeout(() => {
           res();
         }, 0)
       });
-      pr.then(() => {
+      promiseDBA.then(() => {
         stopMove = false;
 
         finalDestinationBottom = 0;
@@ -289,13 +286,13 @@ window.addEventListener("load", function(){
       firstEnterMustang = true;
 
     } else if (currentPos() == mustangSection() && firstEnterMustang == true) {
-      let pr1 = new Promise((res, rej) => {
+      let promiseMustang = new Promise((res, rej) => {
         stopMove = true;
         setTimeout(() => {
           res();
         }, 0)
       });
-      pr1.then(() => {
+      promiseMustang.then(() => {
         stopMove = false;
 
         finalDestinationTop = 0;
