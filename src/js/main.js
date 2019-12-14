@@ -3,7 +3,7 @@ let scrollElems = document.getElementsByClassName('scrollPage');
 let article = document.querySelector('.article');
 let durationTime = [400, 600, 800]; //time of animation duration for mobile
 let indexOfSlowest = durationTime.indexOf(Math.max(...durationTime));
-let durationSetAdditional = [300, 300, 300]; //time of animation of additional steps of splitting and dragging mobile phones
+let durationSetAdditional = [250, 250, 250]; //time of animation of additional steps of splitting and dragging mobile phones
 let durationTimeBG = []; //time of animation for bgColor change;
 for (let i = 0; i < durationTime.length; i++) {
   durationTimeBG[i] = durationTime[i] + durationSetAdditional[i]*2;
@@ -29,7 +29,14 @@ let finalTop = []; //array of final top values of columns
 let phoneHeight = window.innerHeight*0.6;
 let cecilElems = [document.getElementsByClassName('colLeftCecil'), document.getElementsByClassName('colCenterCecil'), document.getElementsByClassName('colRightCecil')];
 let dbaElems = [document.getElementsByClassName('colLeftDBA'), document.getElementsByClassName('colCenterDBA'), document.getElementsByClassName('colRightDBA')];
-let distance = window.innerHeight;
+let distance = window.innerHeight; //distance between visible and invisible mobile phones
+let currentTopCecil = [];
+let newTopCecil = [];
+let currentTopDBA = [];
+let newTopDBA = [];
+let finalDestinationBottom;
+let finalDestinationTop;
+let stopMove = false;
 
 //requestAnimationFrame function
 function animate({timing, draw, duration}) {
@@ -41,7 +48,7 @@ function animate({timing, draw, duration}) {
     // вычисление текущего состояния анимации
     let progress = timing(timeFraction);
     draw(progress); // отрисовать её
-    if (timeFraction < 1) {
+    if (timeFraction < 1 && !stopMove) {
       requestAnimationFrame(animate);
     }
   });
@@ -110,23 +117,24 @@ function mustangSection() {
     }
   }
 }
-
+let progressValue;
 //for phones animation
-function mobileMove(durationSet) {
-  startTopArray = currentProgress;
-  
+function mobileMove(durationSet) { 
   return new Promise((res, rej) => {
     for (let index = 0; index < slidePhones.length; index++) {
       animate({
         duration: durationSet[index],
         timing: function (timeFraction) {
-          return Math.pow(timeFraction, pow)
+          return Math.pow(timeFraction, pow);
         },
         draw: function(progress) {
-          slidePhones[index].style.transform = 'translateY('+(((progress * finalTopArray[index]) + ((1-progress)*startTopArray[index])))+'px)';
-          currentProgress[index] = (progress * finalTopArray[index]) + ((1-progress)*startTopArray[index]);
-    
+            slidePhones[index].style.transform = 'translateY('+(((progress * finalTopArray[index]) + ((1-progress)*startTopArray[index])))+'px)';
+            currentProgress[index] = (progress * finalTopArray[index]) + ((1-progress)*startTopArray[index]);
+
+            progressValue = progress;
+          
           if (progress == 1 && index == indexOfSlowest) {
+            console.log('resolved')
             res();
           };
         }
@@ -134,13 +142,6 @@ function mobileMove(durationSet) {
     }
   })
 }
-
-let currentTopCecil = [];
-let newTopCecil = [];
-let currentTopDBA = [];
-let newTopDBA = [];
-let finalDestinationBottom;
-let finalDestinationTop;
 
 function topMove(durationSet) {
   return new Promise((res, rej) => {
@@ -232,6 +233,7 @@ window.addEventListener("load", function(){
       finalDestinationTop = 0;
       currentProgress = [...initTop];
       finalTopArray = [...finalTop];
+      startTopArray = [...currentProgress];
 
       await topMove(durationZero);
       await mobileMove(durationZero);
@@ -250,6 +252,7 @@ window.addEventListener("load", function(){
       finalDestinationTop = (-1)*distance;
       currentProgress = [...finalTop];
       finalTopArray = [...initTop];
+      startTopArray = [...currentProgress];
 
       await bottomMove(durationZero);
       await mobileMove(durationZero);
@@ -260,42 +263,59 @@ window.addEventListener("load", function(){
   }
   
   document.addEventListener("scroll", function(event) {
+
     if (currentPos() == dbaSection() && firstEnterDBA == true) {
 
-    change(currentGrad, gradDBA, article, durationTimeBG);
-    
-    (async function() {
+      let pr = new Promise((res, rej) => {
+        stopMove = true;
+        setTimeout(() => {
+          res();
+        }, 0)
+      });
+      pr.then(() => {
+        stopMove = false;
+
         finalDestinationBottom = 0;
         finalDestinationTop = (-1)*distance;
         finalTopArray = [...initTop];
+        startTopArray = [...currentProgress];
 
-        await bottomMove(durationSetAdditional);
-        await mobileMove(durationTime);
-        await topMove(durationSetAdditional);
-    })();
-    
-    firstEnterDBA = false;
-    firstEnterMustang = true;
+        (async function() {
+          change(currentGrad, gradDBA, article, durationTimeBG);
+          await bottomMove(durationSetAdditional);
+          await mobileMove(durationTime);
+          await topMove(durationSetAdditional);
+        })();
+      });
+      
+      firstEnterDBA = false;
+      firstEnterMustang = true;
+
     } else if (currentPos() == mustangSection() && firstEnterMustang == true) {
+      let pr1 = new Promise((res, rej) => {
+        stopMove = true;
+        setTimeout(() => {
+          res();
+        }, 0)
+      });
+      pr1.then(() => {
+        stopMove = false;
 
-    change(currentGrad, gradMustang, article, durationTimeBG);
-
-    (async function() {
         finalDestinationTop = 0;
+        startTopArray = [...currentProgress];
         finalTopArray = [...finalTop];
         finalDestinationBottom = distance;
 
-        await topMove(durationSetAdditional);
-        await mobileMove(durationTime);
-        await bottomMove(durationSetAdditional);
+        (async function() {
+          change(currentGrad, gradMustang, article, durationTimeBG);
+          await topMove(durationSetAdditional);
+          await mobileMove(durationTime);
+          await bottomMove(durationSetAdditional);
+        })();
+      });
 
-        // topMove(durationTime)
-        // mobileMove(durationTime)
-        // bottomMove(durationTime)
-    })();
-
-    firstEnterMustang = false;
-    firstEnterDBA = true;
+      firstEnterMustang = false;
+      firstEnterDBA = true;
     }
   });
 
