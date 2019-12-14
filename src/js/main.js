@@ -117,7 +117,6 @@ function mustangSection() {
     }
   }
 }
-let progressValue;
 //for phones animation
 function mobileMove(durationSet) { 
   return new Promise((res, rej) => {
@@ -130,8 +129,6 @@ function mobileMove(durationSet) {
         draw: function(progress) {
             slidePhones[index].style.transform = 'translateY('+(((progress * finalTopArray[index]) + ((1-progress)*startTopArray[index])))+'px)';
             currentProgress[index] = (progress * finalTopArray[index]) + ((1-progress)*startTopArray[index]);
-
-            progressValue = progress;
           
           if (progress == 1 && index == indexOfSlowest) {
             console.log('resolved')
