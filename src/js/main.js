@@ -94,14 +94,6 @@ function currentPos() {
   }
 }
 
-function currentPosStrict() {
-  for (let i = 0; i < scrollElems.length; i++) {
-    if ((window.scrollY) >= scrollElems[i].offsetTop && (window.scrollY) < scrollElems[i].offsetTop + scrollElems[i].clientHeight) {
-      return i;
-    }
-  }
-}
-
 function dbaSection() {
   for (let i = 0; i < scrollElems.length; i++) {
     if (scrollElems[i].id == "dbafitness") {
@@ -230,14 +222,11 @@ window.addEventListener("load", function(){
     finalTopArray = [...finalTop];
     startTopArray = [...currentProgress];
     
-    (async function() {
-      change(gradDBA, gradMustang, article, durationZero);
-      await topMove(durationZero);
-      await mobileMove(durationZero);
-      await bottomMove(durationZero);
-    })();
+    change(gradDBA, gradMustang, article, durationZero);
+    topMove(durationZero)
+      .then(() => mobileMove(durationZero))
+      .then(() => bottomMove(durationZero))
 
-    
   } else {
     firstEnterDBA = false;
     firstEnterMustang = true;
@@ -249,12 +238,10 @@ window.addEventListener("load", function(){
     finalTopArray = [...initTop];
     startTopArray = [...currentProgress];
 
-    (async function() {
-      change(gradMustang, gradDBA, article, durationZero);
-      await bottomMove(durationZero);
-      await mobileMove(durationZero);
-      await topMove(durationZero);
-    })();
+    change(gradMustang, gradDBA, article, durationZero);
+    bottomMove(durationZero)
+      .then(() => mobileMove(durationZero))
+      .then(() => topMove(durationZero))
   }
   
   document.addEventListener("scroll", function(event) {
@@ -274,12 +261,10 @@ window.addEventListener("load", function(){
         finalTopArray = [...initTop];
         startTopArray = [...currentProgress];
 
-        (async function() {
-          change(currentGrad, gradDBA, article, durationTimeBG);
-          await bottomMove(durationSetAdditional);
-          await mobileMove(durationTime);
-          await topMove(durationSetAdditional);
-        })();
+        change(currentGrad, gradDBA, article, durationTimeBG);
+        bottomMove(durationSetAdditional)
+          .then(() => mobileMove(durationTime))
+          .then(() => topMove(durationSetAdditional))
       });
       
       firstEnterDBA = false;
@@ -300,12 +285,10 @@ window.addEventListener("load", function(){
         finalTopArray = [...finalTop];
         finalDestinationBottom = distance;
 
-        (async function() {
-          change(currentGrad, gradMustang, article, durationTimeBG);
-          await topMove(durationSetAdditional);
-          await mobileMove(durationTime);
-          await bottomMove(durationSetAdditional);
-        })();
+        change(currentGrad, gradMustang, article, durationTimeBG);
+        topMove(durationSetAdditional)
+          .then(() => mobileMove(durationTime))
+          .then(() => bottomMove(durationSetAdditional))
       });
 
       firstEnterMustang = false;
