@@ -4,45 +4,6 @@
   height: 100%;
   width: 100%;
 
-  .section-whatwecando & {
-    min-height: 100%;
-    height: auto;
-  }
-
-  .section-blogs .card-footer & {
-    @include flex(space-between, stretch);
-  }
-
-  .section-engineering & {
-    @include spacing(10px);
-    margin-bottom: 7vh;
-  }
-
-  .section-technologies & {
-    justify-content: space-between;
-
-    & > * {
-      width: 20%;
-    }
-  }
-
-  .section-cooperationModels & {
-    justify-content: space-between;
-
-    & > * {
-      width: 33.33%;
-    }
-  }
-
-  .section-codeExamples & {
-    justify-content: space-between;
-    margin-bottom: 12vh;
-
-    @media screen and (max-width: 640px) {
-      margin-bottom: 6vh;
-    }
-  }
-
   .col {
     background-color: transparent;
     @include flex(center, center);
@@ -50,33 +11,6 @@
 
     &:hover {
       text-decoration: none;
-    }
-    
-    .section-whatwecando & {
-      min-height: 440px;
-    }
-
-    .section-stack & {
-      width: 20%;
-
-      @media screen and (max-width: 960px) {
-        width: 40%;
-        margin-bottom: 4vh;
-      }
-
-      @media screen and (max-width: 960px) {
-        width: 50%;
-      }
-
-      @media screen and (max-width: 475px) {
-        width: 100%;
-      }
-    }
-
-    .section-codeExamples & {
-      @media screen and (max-width: 640px) {
-        margin-bottom: 4vh;
-      }
     }
   }
 

@@ -10,111 +10,9 @@
     padding: 8vh 0;
   }
 
-  &.section-reverse {
-    background-color: $color-bg-light;
-    color: $color-text-reverse;
-  }
-
-  &-whatwecando {
-    padding-bottom: 3.5vh;
-    display: flex;
-    flex-direction: column;
-    min-height: calc(100vh);
-    height: fit-content;
-
-    .container {
-      height: unset;
-    }
-  }
-
   &-case-study {
     display: flex;
     align-items: center;
-  }
-
-  &-whatwecando__services {
-    background-image: linear-gradient(to bottom, #464648, 62%, #050506);
-    padding: 0;
-  }
-
-  &-engineering {
-    padding-bottom: 4.5vh;
-  }
-
-  &-blogs {
-    min-height: calc(100vh);
-    height: fit-content;
-  }
-
-  &-contact {
-    min-height: calc(100vh);
-    height: fit-content;
-    padding-bottom: 20vh;
-    z-index: unset;
-
-    &.section-reverse {
-      min-height: fit-content;
-      height: fit-content;
-    }
-  }
-
-  &-partnership {
-    position: relative;
-    min-height: calc(100vh);
-    height: fit-content;
-    background-image: radial-gradient(circle at 0 0, #28282a, #161619 84%);
-
-    .cecil-link {
-      @include font(18px, 500, normal);
-      letter-spacing: 0.82px;
-      color: $color-orange-cecil;
-    }
-
-    .readmore-link {
-      @include font(18px, 500, normal);
-      letter-spacing: 0.82px;
-      color: $color-main;
-
-      &.link-underlined {
-        text-decoration: underline;
-      }
-    }
-
-    @media screen and (max-width: 640px) {
-      & {
-        background-color: #000000;
-      }
-    }
-  }
-
-  &-reviews {
-    min-height: calc(100vh);
-    height: 100%;
-    padding: 0;
-  }
-
-  &-wecreate {
-    min-height: fit-content;
-  }
-
-  &-technologies {
-    min-height: fit-content;
-    background-image: radial-gradient(circle at 42% -5%, #202021, #151416 95%);
-    padding: 20vh 0;
-  }
-
-  &-cooperationModels {
-    min-height: fit-content;
-  }
-
-  &-stack {
-    min-height: fit-content;
-  }
-
-  &-codeExamples {
-    min-height: fit-content;
-    padding-top: 12vh;
-    padding-bottom: 23vh;
   }
 
   &-header {
@@ -127,24 +25,8 @@
       margin-bottom: 5.5vh;
 
       @media screen and (max-width: 640px) {
-        & {
-          margin-bottom: 3vh;
-        }
+        margin-bottom: 3vh;
       }
-    }
-
-    .section-engineering & {
-      flex-direction: column;
-
-      @media screen and (max-width: 640px) {
-        & {
-          align-items: flex-start;
-        }
-      }
-    }
-
-    .section-stack & {
-      flex-direction: column;
     }
 
     .section-title {
@@ -156,43 +38,17 @@
       margin-bottom: 7vh;
 
       @media screen and (max-width: 1280px) {
-        & {
-          margin-bottom: 5vh;
-          font-size: 38px;
-        }
+        margin-bottom: 5vh;
+        font-size: 38px;
       }
 
       @media screen and (max-width: 960px) {
-        & {
-          margin-bottom: 4vh;
-          font-size: 34px;
-        }
+        margin-bottom: 4vh;
+        font-size: 34px;
       }
 
       @media screen and (max-width: 640px) {
-        & {
-          font-size: 28px;
-        }
-      }
-
-      .section-whatwecando & {
-        margin-bottom: 4vh;
-
-        @media screen and (max-width: 1280px) {
-          & {
-            margin-bottom: 3.5vh;
-          }
-        }
-      }
-
-      .section-engineering & {
-        margin-bottom: 3.2vh;
-
-        @media screen and (max-width: 1280px) {
-          & {
-            margin-bottom: 2.4vh;
-          }
-        }
+        font-size: 28px;
       }
 
       .section-case-study & {
@@ -200,61 +56,6 @@
         color: $color-main;
         padding: 0;
         margin: 0;
-      }
-
-      .section-reverse & {
-        color: $color-text-reverse;
-      }
-
-      .section-technologies & {
-        @include font(46px, normal, normal);
-        letter-spacing: 2.09px;
-        margin-bottom: 10vh;
-      }
-
-      .section-cooperationModels & {
-        margin-bottom: 14vh;
-        margin-top: 0;
-      }
-
-      .section-reviews & {
-        margin-top: 0;
-      }
-
-      .section-stack & {
-        margin-bottom: 1.8vh;
-        @include font (34px, 500, normal);
-        margin-top: 0;
-        @include flex(center, center);
-        flex-direction: column;
-
-        @media screen and (max-width: 640px) {
-          @include font (24px, 500, normal);
-        }
-
-        &.title-main {
-          @include font (42px, 500, normal);
-
-          @media screen and (max-width: 640px) {
-            @include font (32px, 500, normal);
-          }
-
-          &:after {
-            content: '';
-            display: inline-block;
-            width: 200px;
-            margin-top: 1.4vh;
-            margin-bottom: 0;
-            height: 1px;
-            background-color: $color-pink2;
-          }
-        }
-      }
-
-      .section-codeExamples & {
-        margin-bottom: 5vh;
-        margin-top: 0;
-        letter-spacing: 1.91px;
       }
     }
   }
@@ -265,9 +66,7 @@
       margin-bottom: 7vh;
 
       @media screen and (max-width: 640px) {
-        & {
-          margin-bottom: 5vh;
-        }
+        margin-bottom: 5vh;
       }
     }
 
@@ -279,115 +78,13 @@
       align-items: flex-start;
     }
 
-    .section-reviews & {
-      align-items: flex-start;
-    }
-
-    .section-partnership & {
-      align-items: flex-start;
-      margin-bottom: 120px;
-
-      @media screen and (max-width: 960px) {
-        & {
-          margin-bottom: 8vh;
-        }
-      }
-    }
-
-    .section-reviews & {
-      margin-bottom: 4.3vh;
-
-      @media screen and (max-width: 1280px) {
-        & {
-          margin-bottom: 3.5vh;
-        }
-      }
-
-      @media screen and (max-width: 960px) {
-        & {
-          margin-bottom: 3vh;
-        }
-      }
-    }
-
-    .section-reviews & .section-review-header {
-      @include flex(flex-start, center);
-      margin-bottom: 3vh;
-      width: 100%;
-      flex-wrap: wrap;
-      align-self: center;
-
-      @media screen and (max-width: 475px) {
-        & {
-          @include spacing(0);
-        }
-      }
-
-      & > * {
-        margin: 0;
-      }
-
-      h3 {
-        @include font(24px, bold, 1.63);
-        letter-spacing: 1.64px;
-        margin: 0;
-        margin-bottom: 1.3vh;
-      }
-
-      h4 {
-        @include font(16px, 300, 1.63);
-        letter-spacing: 0.64px;
-        margin: 0;
-      }
-    }
-
     .section-description {
       @include font(20px, 300, 1.63);
       margin: 0;
       text-align: left;
 
       @media screen and (max-width: 1280px) {
-        & {
-          font-size: 18px;
-        }
-      }
-
-      .section-reviews & {
-        @include font(16px, normal, 1.69);
-
-        @media screen and (max-width: 960px) {
-          & {
-            font-size: 18px;
-          }
-        }
-      }
-
-      .section-contact & {
-        @include font(21px, 300, 1.63);
-        margin-bottom: 8vh;
-
-        @media screen and (max-width: 960px) {
-          & {
-            font-size: 18px;
-          }
-        }
-      }
-
-      .section-partnership & {
-        @include font(20px, 300, 1.63);
-        letter-spacing: 0.91px;
-        margin-bottom: 5vh;
-
-        @media screen and (max-width: 1280px) {
-          & {
-            font-size: 18px;
-          }
-        }
-
-        span {
-          color: $color-orange-cecil;
-          font-weight: 600;
-        }
+        font-size: 18px;
       }
 
       .section-case-study & {
@@ -404,24 +101,7 @@
       margin-bottom: 6vh;
 
       @media screen and (max-width: 475px) {
-        & {
-          margin-bottom: 3vh;
-        }
-      }
-
-      .section-partnership & {
-        height: 115px;
-      }
-
-      .section-dbafitness & {
-        height: 87px;
-      }
-
-      .section-reviews & {
-        width: 100%;
-        max-width: 260px;
-        overflow: hidden;
-        padding: 0;
+        margin-bottom: 3vh;
       }
 
       .img {
@@ -438,10 +118,6 @@
       @include flex(flex-start, center);
     }
 
-    .section-partership & {
-      max-width: 597px;
-    }
-
     .section-footer-media {
       height: 26px; 
       margin-bottom: 3.5vh;
@@ -451,31 +127,6 @@
       @include font(16px, 300, 1.63);
       letter-spacing: 0.73px;
       margin-bottom: 2.6vh;
-
-      .section-reviews & {
-        @include font(16px, 300, 1.63);
-        margin-bottom: 0;
-      }
-
-      .section-partnership & {
-        margin-bottom: 4vh;
-      }
-    }
-
-    .section-review-info > * {
-      color: $color-main;
-      margin: 0;
-      @include font(16px, normal, normal);
-      opacity: 0.9;
-      font-style: italic;
-
-      &:first-child {
-        text-transform: uppercase;
-        margin-top: 3.5vh;
-        margin-bottom: 1vh;
-        @include font(20px, 500, normal);
-        opacity: 1;
-      }
     }
   }
 
@@ -496,38 +147,11 @@
       flex-direction: column;
 
       @media screen and (max-width: 960px) {
-        & {
-          width: 60%;
-        }
+        width: 60%;
       }
 
       @media screen and (max-width: 960px) {
-        & {
-          width: 100%;
-        }
-      }
-
-      .section-partnership & {
-        width: 45%;
-        max-width: 760px;
-
-        @media screen and (max-width: 1280px) {
-          & {
-            width: 40%;
-          }
-        }
-
-        @media screen and (max-width: 960px) {
-          & {
-            width: 60%;
-          }
-        }
-
-        @media screen and (max-width: 640px) {
-          & {
-            width: 100%;
-          }
-        }
+        width: 100%;
       }
 
       &.mustangchain {
@@ -538,138 +162,12 @@
         transition-duration: $transition-main;
       }
     }
-
-    .section-contact & {
-      flex-direction: row;
-      @include spacing(10px);
-
-      @media screen and (max-width: 640px) {
-        & {
-          flex-direction: column-reverse;
-          @include spacing(0);
-        }
-      }
-
-      .col {
-        flex-grow: 1;
-      }
-
-      .col.col-left {
-        @include flex(center, flex-start);
-        flex-direction: column;
-        margin-right: 10%;
-      }
-
-      .col.col-form {
-        min-width: 55%;
-        max-width: 735px
-      }
-    }
-
-    .section-partnership & {
-      flex-direction: row;
-    }
-
-    .section-reviews & {
-      flex-direction: row;
-    }
   }
 
   &-subtitle {
     margin:0;
     color: $color-main;
     font-family: $font-main;
-
-    .section-contact & {
-      @include font(38px, 500, 1.63);
-      letter-spacing: 1.73px;
-      text-transform: uppercase;
-      margin: 0;
-      margin-bottom: 3.5vh;
-
-      @media screen and (max-width: 640px) {
-        & {
-          margin-top: 5vh;
-        }
-      }
-    }
-
-    .section-partnership .section-footer & {
-      margin-bottom: 1.5vh;
-      @include font(20px, 500, 1.63);
-      letter-spacing: 0.91px;
-    }
-
-    .section-reviews & {
-      text-transform: uppercase;
-      @include font(24px, 600, 1.63);
-      letter-spacing: 1.18px;
-      margin-bottom: 1.4vh;
-    }
-
-    .section-engineering & {
-      @include font(24px, 300, 1.63);
-      margin: 0;
-      margin-bottom: 8vh;
-      text-align: center;
-      max-width: 800px;
-
-      @media screen and (max-width: 640px) {
-        & {
-          margin-bottom: 5vh;
-          text-align: left;
-        }
-      }
-    }
-
-    .section-stack & {
-      @include font(22px, 300, 1.63);
-      opacity: 0.9;
-      text-align: center;
-      margin-bottom: 8vh;
-      width: 50vw;
-
-      @media screen and (max-width: 960px) {
-        width: 70vw;
-      }
-
-      @media screen and (max-width: 640px) {
-        @include font(19px, 300, 1.63);
-      }
-    }
-  }
-}
-
-.aside-picture {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: max-content;
-  height: 100%;
-  z-index: -1;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  align-items: center;
-
-  .section-reviews & {
-    top: 55%;
-    transform: translateY(-50%);
-    right: 10%;
-
-    .img {
-      object-fit: contain;
-      max-height: 75%;
-    }
-  }
-
-  .section-mustangchain & {
-    left: 7%;
-
-    .img {
-      object-fit: contain;
-      max-height: 75%;
-    }
   }
 }
 
@@ -691,9 +189,4 @@
   &.invisible {
     display: none;
   }
-}
-
-.must-one {
-  top: -990px;
-  right: 285px;
 }

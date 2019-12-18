@@ -42,15 +42,11 @@ html {
   padding: 0 30px;
 
   @media screen and (max-width: 640px) {
-    & {
-      padding: 0 6px;
-    }
+    padding: 0 6px;
   }
 
   @media screen and (max-width: 475px) {
-    & {
-      padding: 0;
-    }
+    padding: 0;
   }
 }
 
@@ -64,27 +60,8 @@ body {
     display: none;  /* Safari and Chrome */
   }
 
-  & > .main {
-    position: relative;
-    
-    .section-group-homepage {
-      background-image: none;
-      background-color: #161619;
-    }
-  }
-
   & .article {
     overflow: hidden;
-
-    &.stack-group {
-      background-image: linear-gradient(to bottom, #464648, 62%, #050506);
-    }
-  }
-
-  & .article-follow {
-    background-image: linear-gradient(109deg, #222225 3%, #131316 94%);
-    height: 15vh;
-    @include flex(center, center);
   }
 }
 
@@ -103,35 +80,11 @@ body {
   height: 100%;
   width: 100%;
 
-  &.noise {
-    z-index: -1;
-  }
-
-  .header &.noise {
-    display: none;
-  }
-
-  .section-reviews &.bg-reviews {
-    height: 110%;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  .section-partnership & {
-    top: unset;
-    bottom: 0;
-    height: 88%;
-  }
-
   @media screen and (max-width: 640px) {
     & {
       display: none;
 
       &.bg-visible {
-        display: block;
-      }
-
-      &.noise {
         display: block;
       }
     }
@@ -168,32 +121,6 @@ body {
   }
 }
 
-.background-image-gradient {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: -3;
-  margin: 0;
-
-  // &.mustangchain {
-  //   background-image: linear-gradient(295deg, #69c7ed -25%, #608dca 76%, #554ba1 146%);
-  //   //opacity: 0;
-  //   transition-duration: $transition-main;
-  // }
-
-  // &.dbafitness {
-  //   background-image: linear-gradient(117deg, #e74e2c -9%, #f57f4f 56%, #fe9c64 118%);
-  //   //opacity: 1;
-  //   transition-duration: $transition-main;
-  // }
-
-  &.section-reviews {
-    background-image: linear-gradient(-297deg, #69c7ed -25%, #608dca 75%, #554ba1 145%);
-  }
-}
-
 .icon {
   height: 100%;
   width: auto;
@@ -227,10 +154,6 @@ body {
 
 .img-content {
   @include flex(center, center);
-}
-
-.pos-relative {
- position: relative;
 }
 
 .clickable {
