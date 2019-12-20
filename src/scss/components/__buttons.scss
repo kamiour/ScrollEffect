@@ -1,6 +1,6 @@
 .button {
   @include flex(center, center);
-  @include button($color-main, $color-pink2, 0, 0, none, 30px, uppercase);
+  @include button($color-main, $color-bg-dark-home, 0, 0, none, 30px, uppercase);
   @include font(14px, 600, normal);
   transition-duration: 0.3s;
   width: 280px;
@@ -21,10 +21,10 @@
   &.button-secondary {
     background-color: transparent;
     font-weight: normal;
-    border: 2px solid $color-pink2;
+    border: 2px solid $color-bg-dark-home;
 
     &:hover {
-      background-color: $color-pink2;
+      background-color: $color-bg-dark-home;
       color: $color-main;
     }
   }
@@ -65,7 +65,7 @@
   }
 
   &:hover {
-    @include button($color-pink2, $color-main, 0, 0, none, 30px, uppercase);
+    @include button($color-bg-dark-home, $color-main, 0, 0, none, 30px, uppercase);
   }
 
   &-wrap.secondary {

@@ -37,6 +37,8 @@ let newTopDBA = [];
 let finalDestinationBottom;
 let finalDestinationTop;
 let stopMove = false;
+let firstEnterMustang;
+let firstEnterDBA;
 
 //requestAnimationFrame function
 function animate({timing, draw, duration}) {
@@ -123,7 +125,6 @@ function mobileMove(durationSet) {
             currentProgress[index] = (progress * finalTopArray[index]) + ((1-progress)*startTopArray[index]);
           
           if (progress == 1 && index == indexOfSlowest) {
-            console.log('resolved')
             res();
           };
         }
@@ -199,8 +200,10 @@ function bottomMove(durationSet) {
 }
 //end
 
-//executing
-window.addEventListener("load", function(){
+function animationMobileOnLoad() {
+  phoneHeight = window.innerHeight*0.6;
+  distance = window.innerHeight; //distance between visible and invisible mobile phones
+  
   let shiftTop = [0, window.innerHeight*0.22, window.innerHeight*0.02];
   let shiftBottom = [window.innerHeight*0.4, window.innerHeight*0.22, phoneHeight*2]
 
@@ -243,57 +246,63 @@ window.addEventListener("load", function(){
       .then(() => mobileMove(durationZero))
       .then(() => topMove(durationZero))
   }
-  
-  document.addEventListener("scroll", function(event) {
+}
 
-    if (currentPos() == dbaSection() && firstEnterDBA == true) {
-      let promiseDBA = new Promise((res, rej) => {
-        stopMove = true;
-        setTimeout(() => {
-          res();
-        }, 0)
-      });
-      promiseDBA.then(() => {
-        stopMove = false;
+function animationMobileOnScroll() {
+  if (currentPos() == dbaSection() && firstEnterDBA == true) {
+    let promiseDBA = new Promise((res, rej) => {
+      stopMove = true;
+      setTimeout(() => {
+        res();
+      }, 0)
+    });
+    promiseDBA.then(() => {
+      stopMove = false;
 
-        finalDestinationBottom = 0;
-        finalDestinationTop = (-1)*distance;
-        finalTopArray = [...initTop];
-        startTopArray = [...currentProgress];
+      finalDestinationBottom = 0;
+      finalDestinationTop = (-1)*distance;
+      finalTopArray = [...initTop];
+      startTopArray = [...currentProgress];
 
-        change(currentGrad, gradDBA, article, durationTimeBG);
-        bottomMove(durationSetAdditional)
-          .then(() => mobileMove(durationTime))
-          .then(() => topMove(durationSetAdditional))
-      });
-      
-      firstEnterDBA = false;
-      firstEnterMustang = true;
+      change(currentGrad, gradDBA, article, durationTimeBG);
+      bottomMove(durationSetAdditional)
+        .then(() => mobileMove(durationTime))
+        .then(() => topMove(durationSetAdditional))
+    });
+    
+    firstEnterDBA = false;
+    firstEnterMustang = true;
 
-    } else if (currentPos() == mustangSection() && firstEnterMustang == true) {
-      let promiseMustang = new Promise((res, rej) => {
-        stopMove = true;
-        setTimeout(() => {
-          res();
-        }, 0)
-      });
-      promiseMustang.then(() => {
-        stopMove = false;
+  } else if (currentPos() == mustangSection() && firstEnterMustang == true) {
+    let promiseMustang = new Promise((res, rej) => {
+      stopMove = true;
+      setTimeout(() => {
+        res();
+      }, 0)
+    });
+    promiseMustang.then(() => {
+      stopMove = false;
 
-        finalDestinationTop = 0;
-        startTopArray = [...currentProgress];
-        finalTopArray = [...finalTop];
-        finalDestinationBottom = distance;
+      finalDestinationTop = 0;
+      startTopArray = [...currentProgress];
+      finalTopArray = [...finalTop];
+      finalDestinationBottom = distance;
 
-        change(currentGrad, gradMustang, article, durationTimeBG);
-        topMove(durationSetAdditional)
-          .then(() => mobileMove(durationTime))
-          .then(() => bottomMove(durationSetAdditional))
-      });
+      change(currentGrad, gradMustang, article, durationTimeBG);
+      topMove(durationSetAdditional)
+        .then(() => mobileMove(durationTime))
+        .then(() => bottomMove(durationSetAdditional))
+    });
 
-      firstEnterMustang = false;
-      firstEnterDBA = true;
-    }
-  });
+    firstEnterMustang = false;
+    firstEnterDBA = true;
+  }
+}
 
+//executing
+window.addEventListener("load", animationMobileOnLoad);
+window.addEventListener("scroll", animationMobileOnScroll);
+window.addEventListener("resize", function() {
+  animationMobileOnLoad();
+  animationMobileOnScroll();
 });

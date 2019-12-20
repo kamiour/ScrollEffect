@@ -11,17 +11,12 @@ $f-lheight-main: normal;
 
 $color-main: #ffffff;
 $color-secondary: #888888;
-$color-reverse: #b82b5c;
-$color-pink2: #f11869;
-$color-pink-hover: #5a1231;
 $color-gray-light: #c1c8d5;
 
 $color-blue: #77a0d5;
 $color-lightblue: #639cd3;
 $color-orange: #f68050;
-$color-orange-cecil: #e0810b;
 $color-text-reverse: #373739;
-$color-cecil: #ee8e02;
 
 $color-bg-dark: #1b1b1b;
 $color-bg-dark2: #1b1b1c;
@@ -37,10 +32,9 @@ $color-light-gray: #bbcbd7;
 $element-border: 1px solid $color-main;
 
 $anim-mob-height: calc(100vh * (0.6));
+$anim-mob-width: calc(100vh * (0.6/2.09));
 
 $transition-main: 0.4s;
 $transition-fast: 0.2s;
 $transition-slow: 0.8s;
 $transition-homepage: 1s;
-//$transition-slide: 5s;
-//$transition-slide: 0.9s;
